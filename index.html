@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ace Freelancing - Professional Freelance Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <div class="logo-img">AF</div>
+                    <h1>Ace<span>Freelancing</span></h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#" id="customerServiceBtn">Customer Service</a></li>
+                    <li><a href="#" id="termsBtn">T&Cs</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <a href="#" class="btn btn-outline" id="loginBtn">Login</a>
+                    <a href="#" class="btn btn-primary" id="registerBtn">Sign Up</a>
+                </div>
+                <div class="user-profile" id="userProfile">
+                    <div class="user-dropdown">
+                        <div class="user-avatar" id="userAvatar">JD</div>
+                        <div class="dropdown-menu">
+                            <a href="#" id="dashboardLink">Dashboard</a>
+                            <a href="#" id="logoutBtn">Logout</a>
+                        </div>
+                    </div>
+                    <span id="userName">John Doe</span>
+                </div>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Login to Your Account</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email Address</label>
+                        <input type="email" id="loginEmail" class="form-control" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" class="form-control" placeholder="Enter your password" required>
+                    </div>
+                    <div class="form-footer">
+                        <a href="#" id="forgotPassword">Forgot Password?</a>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </div>
+                </form>
+                <div style="text-align: center; margin-top: 20px;">
+                    <p>Don't have an account? <a href="#" id="switchToRegister">Sign Up</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Registration Modal -->
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Create an Account</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="registerName">Full Name</label>
+                        <input type="text" id="registerName" class="form-control" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerEmail">Email Address</label>
+                        <input type="email" id="registerEmail" class="form-control" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPhone">Phone Number</label>
+                        <input type="tel" id="registerPhone" class="form-control" placeholder="Enter your phone number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword">Password</label>
+                        <input type="password" id="registerPassword" class="form-control" placeholder="Create a password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerConfirmPassword">Confirm Password</label>
+                        <input type="password" id="registerConfirmPassword" class="form-control" placeholder="Confirm your password" required>
+                    </div>
+                    <div class="form-footer">
+                        <a href="#" id="switchToLogin">Already have an account?</a>
+                        <button type="submit" class="btn btn-primary">Create Account</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div class="modal" id="forgotPasswordModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Reset Your Password</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="forgotPasswordForm">
+                    <div class="form-group">
+                        <label for="resetEmail">Email Address</label>
+                        <input type="email" id="resetEmail" class="form-control" placeholder="Enter your email" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Reset Link</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Email Verification Modal -->
+    <div class="modal" id="emailVerificationModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Verify Your Email</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>We've sent a verification code to your email address. Please enter it below:</p>
+                <form id="emailVerificationForm">
+                    <div class="form-group">
+                        <label for="verificationCode">Verification Code</label>
+                        <input type="text" id="verificationCode" class="form-control" placeholder="Enter verification code" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Verify Email</button>
+                </form>
+                <div style="text-align: center; margin-top: 20px;">
+                    <p>Didn't receive the code? <a href="#" id="resendCode">Resend Code</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- STK Push Modal -->
+    <div class="modal" id="stkPushModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Complete Payment</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="loading" id="paymentLoading">
+                    <div class="loading-spinner"></div>
+                    <p>Processing payment...</p>
+                </div>
+                
+                <div class="payment-status payment-success" id="paymentSuccess">
+                    <i class="fas fa-check-circle" style="color: var(--success); font-size: 2rem; margin-bottom: 10px;"></i>
+                    <h3>Payment Successful!</h3>
+                    <p>Your payment has been processed successfully.</p>
+                </div>
+                
+                <div class="payment-status payment-error" id="paymentError">
+                    <i class="fas fa-times-circle" style="color: var(--danger); font-size: 2rem; margin-bottom: 10px;"></i>
+                    <h3>Payment Failed</h3>
+                    <p id="errorMessage">There was an error processing your payment. Please try again.</p>
+                </div>
+                
+                <div id="paymentForm">
+                    <p>Enter your Safaricom number to receive an STK Push notification:</p>
+                    <form id="stkPushForm">
+                        <div class="form-group">
+                            <label for="phoneNumber">Safaricom Number</label>
+                            <input type="tel" id="phoneNumber" class="form-control" placeholder="07XXXXXXXX" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Proceed to Payment</button>
+                    </form>
+                    <div style="margin-top: 20px; padding: 15px; background-color: #f8f9fa; border-radius: 5px;">
+                        <p><strong>Payment Details:</strong></p>
+                        <p id="paymentDescription">Account Activation Fee: KES 450</p>
+                        <p>Account: 01101791245001</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main id="mainContent">
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Earn Money Writing Academic Content</h1>
+                    <p>Join Kenya's premier freelancing platform for writers. Get paid for completing academic writing tasks with flexible deadlines and competitive rates.</p>
+                    <div class="hero-buttons">
+                        <a href="#" class="btn btn-primary" id="startEarningBtn">Start Earning Today</a>
+                        <a href="#" class="btn btn-secondary" id="learnMoreBtn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="section how-it-works" id="how-it-works">
+            <div class="container">
+                <div class="section-title">
+                    <h2>How Ace Freelancing Works</h2>
+                    <p>Simple steps to start earning as a freelance writer</p>
+                </div>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Create Account</h3>
+                        <p>Sign up and activate your account with a one-time fee of KES 450</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Browse Tasks</h3>
+                        <p>View available writing tasks with varying complexity and pay rates</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Select & Complete</h3>
+                        <p>Choose one task per day, complete it and submit before deadline</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h3>Get Paid</h3>
+                        <p>Receive payment via M-Pesa, Airtel Money, Bank or PayPal</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="section testimonials" id="testimonials">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Success Stories from Kenyan Writers</h2>
+                    <p>Hear from writers who have transformed their lives with Ace Freelancing</p>
+                </div>
+                <div class="testimonials-slider">
+                    <div class="testimonial">
+                        <p class="testimonial-text">"Ace Freelancing has been a game-changer for me. I've been able to pay my university fees and support my family through writing. The platform is transparent and payments are always on time."</p>
+                        <div class="testimonial-author">
+                            <div class="author-img"><i class="fas fa-user"></i></div>
+                            <div class="author-info">
+                                <h4>Grace Wanjiku</h4>
+                                <p>Nairobi, 2 years with Ace</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-controls">
+                        <div class="slider-dot active"></div>
+                        <div class="slider-dot"></div>
+                        <div class="slider-dot"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Dashboard Section -->
+    <section class="dashboard" id="dashboard">
+        <div class="container">
+            <div class="dashboard-header">
+                <h2>Writer Dashboard</h2>
+                <div>
+                    <span class="account-status" id="accountStatus">Account Status: <span id="statusText">Inactive</span></span>
+                    <button class="btn btn-primary" id="activateAccountBtn" style="margin-left: 15px;">Activate Account</button>
+                </div>
+            </div>
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <i class="fas fa-wallet"></i>
+                    <h3 id="totalEarnings">KES 0</h3>
+                    <p>Total Earnings</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <h3 id="totalMoneyIn">KES 0</h3>
+                    <p>Total Money In</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-receipt"></i>
+                    <h3 id="totalExpenses">KES 0</h3>
+                    <p>Total Expenses</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-balance-scale"></i>
+                    <h3 id="accountBalance">KES 0</h3>
+                    <p>Account Balance</p>
+                </div>
+            </div>
+
+            <div class="dashboard-nav">
+                <ul>
+                    <li><a href="#" class="dashboard-nav-link active" data-section="tasks">Tasks Available</a></li>
+                    <li><a href="#" class="dashboard-nav-link" data-section="awarded">Awarded Tasks</a></li>
+                    <li><a href="#" class="dashboard-nav-link" data-section="submission">Submission Panel</a></li>
+                    <li><a href="#" class="dashboard-nav-link" data-section="account">My Account</a></li>
+                    <li><a href="#" class="dashboard-nav-link" data-section="withdraw">Withdraw</a></li>
+                    <li><a href="#" class="dashboard-nav-link" data-section="training">Training</a></li>
+                </ul>
+            </div>
+
+            <div class="dashboard-content">
+                <!-- Tasks Available Section -->
+                <div class="dashboard-section active" id="tasks-section">
+                    <h3>Available Writing Tasks</h3>
+                    <div class="tasks-grid">
+                        <div class="task-card">
+                            <h4>High School Biology Essay</h4>
+                            <p>Write a 1000-word essay on photosynthesis process</p>
+                            <div class="task-price">KES 800</div>
+                            <div class="task-actions">
+                                <button class="btn btn-primary select-task" data-task="1">Select Task</button>
+                            </div>
+                        </div>
+                        <div class="task-card">
+                            <h4>University Economics Paper</h4>
+                            <p>Research paper on impact of inflation in Kenya (2500 words)</p>
+                            <div class="task-price">KES 2,500</div>
+                            <div class="task-actions">
+                                <button class="btn btn-primary select-task" data-task="2">Select Task</button>
+                            </div>
+                        </div>
+                        <div class="task-card">
+                            <h4>Primary School Composition</h4>
+                            <p>Creative writing: "My Favorite Teacher" (500 words)</p>
+                            <div class="task-price">KES 400</div>
+                            <div class="task-actions">
+                                <button class="btn btn-primary select-task" data-task="3">Select Task</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Awarded Tasks Section -->
+                <div class="dashboard-section" id="awarded-section">
+                    <h3>Your Awarded Tasks</h3>
+                    <p>You can select only one task per day</p>
+                    <div class="tasks-grid" id="awardedTasksContainer">
+                        <!-- Awarded tasks will appear here -->
+                    </div>
+                </div>
+
+                <!-- Submission Panel Section -->
+                <div class="dashboard-section" id="submission-section">
+                    <h3>Submit Your Work</h3>
+                    <div id="submissionContainer">
+                        <!-- Submission form will appear here -->
+                    </div>
+                </div>
+
+                <!-- My Account Section -->
+                <div class="dashboard-section" id="account-section">
+                    <h3>Account Information</h3>
+                    <div class="account-info">
+                        <div class="account-info-item">
+                            <span>Username:</span>
+                            <span id="displayUsername">john_doe</span>
+                        </div>
+                        <div class="account-info-item">
+                            <span>Email:</span>
+                            <span id="displayEmail">john@example.com</span>
+                        </div>
+                        <div class="account-info-item">
+                            <span>Phone Number:</span>
+                            <span id="displayPhone">+254712345678</span>
+                        </div>
+                        <div class="account-info-item">
+                            <span>Account Balance:</span>
+                            <span id="displayBalance">KES 0</span>
+                        </div>
+                        <div class="account-info-item">
+                            <span>Account Status:</span>
+                            <span id="displayStatus">Inactive</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Withdraw Section -->
+                <div class="dashboard-section" id="withdraw-section">
+                    <h3>Withdraw Your Earnings</h3>
+                    <p>Available balance: <strong id="withdrawBalance">KES 0</strong></p>
+                    <div class="withdraw-options">
+                        <div class="withdraw-option" data-method="mpesa">
+                            <i class="fas fa-mobile-alt"></i>
+                            <h4>M-Pesa</h4>
+                            <p>Instant transfer to your phone</p>
+                        </div>
+                        <div class="withdraw-option" data-method="airtel">
+                            <i class="fas fa-wifi"></i>
+                            <h4>Airtel Money</h4>
+                            <p>Transfer to Airtel number</p>
+                        </div>
+                        <div class="withdraw-option" data-method="bank">
+                            <i class="fas fa-university"></i>
+                            <h4>Bank Transfer</h4>
+                            <p>1-3 business days</p>
+                        </div>
+                        <div class="withdraw-option" data-method="paypal">
+                            <i class="fab fa-paypal"></i>
+                            <h4>PayPal</h4>
+                            <p>International transfers</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Training Section -->
+                <div class="dashboard-section" id="training-section">
+                    <h3>Writing Training Program</h3>
+                    <div class="task-card">
+                        <p>If your articles have been declined more than 2 times, you're required to attend our training session to improve your writing skills.</p>
+                        <div class="training-price">Training Fee: KES 500</div>
+                        <button class="btn btn-primary" id="enrollTrainingBtn">Enroll in Training</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Ace Freelancing</h3>
+                    <p>Kenya's premier platform for academic writers. Earn money writing from anywhere.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#">Customer Service</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>bonnyace99@gmail.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+254 756 579 974</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Nairobi, Kenya</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Ace Freelancing. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/app.js"></script>
+</body>
+</html>
